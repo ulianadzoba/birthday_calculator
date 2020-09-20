@@ -1,5 +1,6 @@
 require 'time'
 require 'date'
+require 'ostruct'
 require 'active_support/all'
 
 class BirthdayCalculator
@@ -40,8 +41,7 @@ class BirthdayCalculator
     hh, mm = mm.divmod(60)         
     dd, hh = hh.divmod(24)
 
-    puts "It's left #{dd} days, #{hh} hours and #{mm} minutes to your birthday!"
-    return "It's left #{dd} days, #{hh} hours and #{mm} minutes to your birthday!"
+    OpenStruct.new(days: dd, hours: hh, minutes: mm)
   end
 
   def modify_date(year, month, day, hour, min, sec) 
@@ -58,3 +58,4 @@ class BirthdayCalculator
     end
   end
 end
+
